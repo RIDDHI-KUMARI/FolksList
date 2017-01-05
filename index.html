@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+   <head>
+         <title>Address Book</title>
+         <link rel="stylesheet" type="text/css" href="styles.css">
+   </head>
+   <body ng-controller="FolksController">
+   <h1>Address Book</h1>
+      <div class="wrapper">
+          <div class="contact-item" ng-repeat="person in folks|orderBy:'first name'">
+                <div>{{person.first name}} - {{person.last name}}-{{person.mobile no}}</div>
+                <div>{{person.address}} </div>
+
+         </div>
+   </div>	
+   <center><button ng-click="ShowForm()" ng-hide="formVisibility "> Add Contact</button></center>
+   <div ng-show="formVisibility " class="wrapper">
+          <h2>Add a Contact</h2>
+   first name: <input type="text" ng-model="newPerson.first name"></input>
+   last name: <input type="text" ng-model="newPerson.last name"></input>
+   mobile no: <input type="text" ng-model="newPerson.mobile no"></input>
+    address: <input type="text" ng-model="newPerson.address"></input>
+         <button ng-click="Submit()">Submit</button>
+   </div>	
+
+   <script src= "angular.min.js" type="text/javascript"></script>
+   <script src= "Scripts.js" type="text/javascript"></script>
+   <script src= "angular-local-storage-min.js" type="text/javascript"></script>
+   </body>
+</html>
